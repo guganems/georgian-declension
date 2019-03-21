@@ -1,0 +1,9 @@
+.container {
+    margin-top: 50px;
+}
+
+.content {
+    margin-top: 10px;
+    border: 1px solid black;
+    height: 200px;
+}
