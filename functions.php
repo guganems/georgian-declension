@@ -14,6 +14,23 @@ function motxrobiti($word) {
     return $rootForm;
 }
 
+function micemiti($word){
+    $rootForm = getRoot($word);
+
+    $rootForm .= "ს";
+
+    return $rootForm;
+}
+
+function natesaobiti($word){
+    $rootForm = getRoot($word);
+    $shekvecili = kveca($rootForm);
+
+    $shekvecili .= 'ის';
+
+    return $shekvecili;
+}
+
 function getRoot($word){
     if (lastIsVowel($word)){
         $root = $word;
@@ -25,6 +42,17 @@ function getRoot($word){
     }
 
     return $root;
+}
+
+function kveca ($word){
+    $vowels = ["ა", 'ე', 'ო', 'უ'];
+
+    $lastLetter = mb_substr($word, mb_strlen($word)-1, 1);
+    if (in_array($lastLetter, $vowels)){
+        $rootForm = mb_substr($word, 0, mb_strlen($word)-1);
+    } else return $word;
+
+    return $rootForm;
 }
 
 function has3Vowel ($word){
@@ -45,6 +73,15 @@ function has3Vowel ($word){
         }
     }
 
+    $last2Vowels = mb_substr($word, mb_strlen($word)-2, 2);
+    $chrArray = preg_split('//u', $last2Vowels, -1, PREG_SPLIT_NO_EMPTY);
+    for ($i = 0; $i < sizeof($chrArray); $i++){
+        if (!in_array($chrArray[$i], $fullVowels)) return false;
+        else return true;
+    }
+
+    if (mb_strlen($word) <= 3) return true;
+    if ($vowelsInThisWord == "ეაი") return false;
     if ($isASafe) return false;
     if (endsWith($word, "ური")) return false;
     if (endsWith($word, "ორი")) return false;

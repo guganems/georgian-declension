@@ -4,7 +4,7 @@ include_once "test.php";
 
 $word = $_GET["word"];
 
-$word = motxrobiti($word);
+$word = natesaobiti($word);
 //$word = test($word);
 //$word = getRoot($word);
 ?>
