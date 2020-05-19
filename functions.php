@@ -1,36 +1,4 @@
 <?php
-function motxrobiti($word) {
-    $rootForm = getRoot($word);
-
-    if (!lastIsVowel($word)) {
-        if (has3Vowel($word)){
-            $rootForm = $word . "მ";
-        } else $rootForm .= "მა";
-
-    } else {
-        $rootForm = $word . "მ";
-    }
-
-    return $rootForm;
-}
-
-function micemiti($word){
-    $rootForm = getRoot($word);
-
-    $rootForm .= "ს";
-
-    return $rootForm;
-}
-
-function natesaobiti($word){
-    $rootForm = getRoot($word);
-    $shekvecili = kveca($rootForm);
-
-    $shekvecili .= 'ის';
-
-    return $shekvecili;
-}
-
 function getRoot($word){
     if (lastIsVowel($word)){
         $root = $word;
@@ -43,7 +11,6 @@ function getRoot($word){
 
     return $root;
 }
-
 function kveca ($word){
     $vowels = ["ა", 'ე', 'ო', 'უ'];
 
@@ -54,7 +21,6 @@ function kveca ($word){
 
     return $rootForm;
 }
-
 function has3Vowel ($word){
     $fullVowels = ["ა", 'ე', 'ი', 'ო', 'უ'];
     $vowelsInThisWord = "";
@@ -90,7 +56,6 @@ function has3Vowel ($word){
         return true;
     } else return false;
 }
-
 function lastIsVowel($word){
     $vowels = ["ა", 'ე', 'ო', 'უ'];
 
@@ -98,13 +63,11 @@ function lastIsVowel($word){
         return true;
     } else return false;
 }
-
 function startsWith($haystack, $needle)
 {
     $length = strlen($needle);
     return (substr($haystack, 0, $length) === $needle);
 }
-
 function endsWith($haystack, $needle)
 {
     $length = strlen($needle);

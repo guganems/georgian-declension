@@ -1,12 +1,16 @@
 <?php
 include_once "functions.php";
 include_once "test.php";
+include_once "Georgian.php";
+use \Georgian\Georgian;
 
 $word = $_GET["word"];
 
-$word = natesaobiti($word);
-//$word = test($word);
-//$word = getRoot($word);
+$geo = new Georgian($word);
+
+foreach($geo as $key => $value) {
+    print "$key => $value\n";
+}
 ?>
 
 <!DOCTYPE html>
